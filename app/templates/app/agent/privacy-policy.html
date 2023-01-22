@@ -1,0 +1,311 @@
+
+
+{% extends "app/agent/base1.html" %}
+{% block content %}
+{% load static %}
+ <!-- Favicons -->
+ <link href="{% static 'customer/img/favicon.png' %}" rel="icon">
+ <link href="{% static 'customer/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+ <!-- Google Fonts -->
+ <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+
+ <!-- Bootstrap CSS File -->
+ <link href="{% static 'customer/lib/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+ <!-- Libraries CSS Files -->
+ <link href="{% static 'customer/lib/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
+ <link href="{% static 'customer/lib/animate/animate.min.css' %}" rel="stylesheet">
+ <link href="{% static 'customer/lib/ionicons/css/ionicons.min.css' %}" rel="stylesheet">
+ <link href="{% static 'customer/lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+
+ <!-- Main Stylesheet File -->
+ <link href="{% static 'customer/css/style.css' %}" rel="stylesheet">
+<main id="main">
+  <!--/ Intro Single star /-->
+  <section class="intro-single">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-lg-8">
+          <div class="title-single-box">
+            <h1 class="title-single">Privacy Policy Us</h1>
+          </div>
+        </div>
+        <div class="col-md-12 col-lg-4">
+          <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item">
+                <a href="{% url 'agenthomepage' %}">Home</a>
+              </li>
+              <li class="breadcrumb-item active" aria-current="page">
+                Privacy Policy Us
+              </li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--/ Intro Single End /-->
+
+  <!--/ About Star /-->
+  <section class="section-about">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="about-img-box">
+            <img src="{% static 'customer/img/slide-3.jpg' %}" alt="" class="img-fluid">
+          </div>
+          <div class="sinse-box">
+            <h3 class="sinse-title">EstateAgency
+              <span></span>
+              <br> Sinse 2022</h3>
+            <p>Art & Creative</p>
+          </div>
+        </div>
+        <div class="col-md-12 section-t8">
+          <div class="row">
+            <div class="col-md-6 col-lg-5">
+              <img src="{% static 'customer/img/property-3.jpg' %}" alt="" class="img-fluid">
+            </div>
+            <div class="col-lg-2  d-none d-lg-block">
+              <div class="title-vertical d-flex justify-content-start">
+                <span>EstateAgency Exclusive Property</span>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-5 section-md-t3">
+              <div class="title-box-d">
+                <h3 class="title-d">
+                  <span class="color-d">Privacy</span> Policy
+                  <br> Us.</h3>
+              </div>
+              <p class="color-text-a">
+                This Privacy Policy describes how India Real Estate Trust collects, uses, and discloses your personal information both offline and on the websites, apps, and services where this Privacy Policy appears or is referenced. This Privacy Policy does not apply to personal information Brookfield Properties collects from its employees and contractors
+              </p>
+              <p class="color-text-a">
+                By accessing a India Real Estate Trust  website, app, or service from which this Privacy Policy is referenced, you confirm that you have read, understand, and acknowledge the terms of this Privacy Policy. For the purpose of European data protection laws, Brookfield India Real Estate Trust  acts as a controller in connection with certain personal information described in this Privacy Policy. This Privacy Policy is not a contract and does not create any legal rights or obligations.
+              </p>
+              <p class="color-text">
+                We may update this Privacy Policy.
+
+From time to time we may change this Privacy Policy. We will notify you of any material changes to our Privacy Policy to the extent required by law. We will post an updated copy on our websites. Please check our websites periodically for updates. Your continued use of our websites or our services means that you consent to the collection, use and disclosure of your personal information as set out in the updated Privacy Policy.
+              </p>>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--/ About End /-->
+
+  <!--/ Team Star /-->
+ <!-- <section class="section-agents section-t8">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="title-wrap d-flex justify-content-between">
+            <div class="title-box">
+              <h2 class="title-a">Meet Our Team</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card-box-d">
+            <div class="card-img-d">
+              <img src="img/agent-7.jpg" alt="" class="img-d img-fluid">
+            </div>
+            <div class="card-overlay card-overlay-hover">
+              <div class="card-header-d">
+                <div class="card-title-d align-self-center">
+                  <h3 class="title-d">
+                    <a href="agent-single.html" class="link-two">Margaret Sotillo
+                      <br> Escala</a>
+                  </h3>
+                </div>
+              </div>
+              <div class="card-body-d">
+                <p class="content-d color-text-a">
+                  Sed porttitor lectus nibh, Cras ultricies ligula sed magna dictum porta two.
+                </p>
+                <div class="info-agents color-a">
+                  <p>
+                    <strong>Phone: </strong> +54 356 945234</p>
+                  <p>
+                    <strong>Email: </strong> agents@example.com</p>
+                </div>
+              </div>
+              <div class="card-footer-d">
+                <div class="socials-footer d-flex justify-content-center">
+                  <ul class="list-inline">
+                    <li class="list-inline-item">
+                      <a href="#" class="link-one">
+                        <i class="fa fa-facebook" aria-hidden="true"></i>
+                      </a>
+                    </li>
+                    <li class="list-inline-item">
+                      <a href="#" class="link-one">
+                        <i class="fa fa-twitter" aria-hidden="true"></i>
+                      </a>
+                    </li>
+                    <li class="list-inline-item">
+                      <a href="#" class="link-one">
+                        <i class="fa fa-instagram" aria-hidden="true"></i>
+                      </a>
+                    </li>
+                    <li class="list-inline-item">
+                      <a href="#" class="link-one">
+                        <i class="fa fa-pinterest-p" aria-hidden="true"></i>
+                      </a>
+                    </li>
+                    <li class="list-inline-item">
+                      <a href="#" class="link-one">
+                        <i class="fa fa-dribbble" aria-hidden="true"></i>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card-box-d">
+            <div class="card-img-d">
+              <img src="img/agent-6.jpg" alt="" class="img-d img-fluid">
+            </div>
+            <div class="card-overlay card-overlay-hover">
+              <div class="card-header-d">
+                <div class="card-title-d align-self-center">
+                  <h3 class="title-d">
+                    <a href="agent-single.html" class="link-two">Stiven Spilver
+                      <br> Darw</a>
+                  </h3>
+                </div>
+              </div>
+              <div class="card-body-d">
+                <p class="content-d color-text-a">
+                  Sed porttitor lectus nibh, Cras ultricies ligula sed magna dictum porta two.
+                </p>
+                <div class="info-agents color-a">
+                  <p>
+                    <strong>Phone: </strong> +54 356 945234</p>
+                  <p>
+                    <strong>Email: </strong> agents@example.com</p>
+                </div>
+              </div>
+              <div class="card-footer-d">
+                <div class="socials-footer d-flex justify-content-center">
+                  <ul class="list-inline">
+                    <li class="list-inline-item">
+                      <a href="#" class="link-one">
+                        <i class="fa fa-facebook" aria-hidden="true"></i>
+                      </a>
+                    </li>
+                    <li class="list-inline-item">
+                      <a href="#" class="link-one">
+                        <i class="fa fa-twitter" aria-hidden="true"></i>
+                      </a>
+                    </li>
+                    <li class="list-inline-item">
+                      <a href="#" class="link-one">
+                        <i class="fa fa-instagram" aria-hidden="true"></i>
+                      </a>
+                    </li>
+                    <li class="list-inline-item">
+                      <a href="#" class="link-one">
+                        <i class="fa fa-pinterest-p" aria-hidden="true"></i>
+                      </a>
+                    </li>
+                    <li class="list-inline-item">
+                      <a href="#" class="link-one">
+                        <i class="fa fa-dribbble" aria-hidden="true"></i>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card-box-d">
+            <div class="card-img-d">
+              <img src="img/agent-5.jpg" alt="" class="img-d img-fluid">
+            </div>
+            <div class="card-overlay card-overlay-hover">
+              <div class="card-header-d">
+                <div class="card-title-d align-self-center">
+                  <h3 class="title-d">
+                    <a href="agent-single.html" class="link-two">Emma Toledo
+                      <br> Cascada</a>
+                  </h3>
+                </div>
+              </div>
+              <div class="card-body-d">
+                <p class="content-d color-text-a">
+                  Sed porttitor lectus nibh, Cras ultricies ligula sed magna dictum porta two.
+                </p>
+                <div class="info-agents color-a">
+                  <p>
+                    <strong>Phone: </strong> +54 356 945234</p>
+                  <p>
+                    <strong>Email: </strong> agents@example.com</p>
+                </div>
+              </div>
+              <div class="card-footer-d">
+                <div class="socials-footer d-flex justify-content-center">
+                  <ul class="list-inline">
+                    <li class="list-inline-item">
+                      <a href="#" class="link-one">
+                        <i class="fa fa-facebook" aria-hidden="true"></i>
+                      </a>
+                    </li>
+                    <li class="list-inline-item">
+                      <a href="#" class="link-one">
+                        <i class="fa fa-twitter" aria-hidden="true"></i>
+                      </a>
+                    </li>
+                    <li class="list-inline-item">
+                      <a href="#" class="link-one">
+                        <i class="fa fa-instagram" aria-hidden="true"></i>
+                      </a>
+                    </li>
+                    <li class="list-inline-item">
+                      <a href="#" class="link-one">
+                        <i class="fa fa-pinterest-p" aria-hidden="true"></i>
+                      </a>
+                    </li>
+                    <li class="list-inline-item">
+                      <a href="#" class="link-one">
+                        <i class="fa fa-dribbble" aria-hidden="true"></i>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>-->
+  <!--/ Team End /-->
+</main>
+<!-- JavaScript Libraries -->
+<script src="{% static 'customer/lib/jquery/jquery.min.js' %}"></script>
+<script src="{% static 'customer/lib/jquery/jquery-migrate.min.js' %}"></script>
+<script src="{% static 'customer/lib/popper/popper.min.js' %}"></script>
+<script src="{% static 'customer/lib/bootstrap/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'customer/lib/easing/easing.min.js' %}"></script>
+<script src="{% static 'customer/lib/owlcarousel/owl.carousel.min.js' %}"></script>
+<script src="{% static 'customer/lib/scrollreveal/scrollreveal.min.js' %}"></script>
+<!-- Contact Form JavaScript File -->
+<script src="{% static 'customer/contactform/contactform.js' %}"></script>
+
+<!-- Template Main Javascript File -->
+<script src="{% static 'customer/js/main.js' %}"></script>
+{% endblock %}
+
+ 

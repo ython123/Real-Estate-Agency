@@ -1,0 +1,777 @@
+{% extends "app/Agent/base1.html" %}
+{% block content %}
+{% load static %}
+
+
+  <main id="main">
+    
+    <!-io- ======= Intro Single ======= -->
+    <sectn class="intro-single">   
+        <br/>
+        <br/>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 col-lg-8">
+            <div class="title-single-box">
+              <h1 class="title-single">Post your property </h1>
+              <span class="color-text-a">For Agent. You can easily send your property .</span>
+            </div>
+          </div>
+          
+          <div class="col-md-12 col-lg-4">
+            <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+              <ol class="breadcrumb">
+                
+                <li class="breadcrumb-item">
+                  <a href="{% url 'agenthomepage' %}">Home</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">
+                    Post your property
+                </li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </section><!-- End Intro Single-->
+  <!-- ======= Blog Single ======= -->
+    <section class="news-single nav-arrow-b">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="news-img-box">
+              <img src="{% static 'customer/assets/img/slide-3.jpg' %}" alt="" class="img-fluid">
+            </div>
+            <div class="news-img-box">
+            </div>
+            <div class="news-img-box">
+             
+            </div>
+          </div>
+         
+        </div>
+        <br/>
+          <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+            <div class="form-comments">
+              <div class="title-box-d">
+                <h3 class="title-d"> Post property</h3>
+              </div>
+              <br/>
+              {% if msg %}
+                <center><h1 style="color:rgb(29, 163, 29);">{{msg}}</h1></center>
+                <br/>
+              {% endif %}
+              <br/>
+              {% if request.session.role == "Agent" %}
+              <form class="form-a" action="{% url 'insert_property_post_data' pk=request.session.id %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+              {% else %}
+              <form class="form-a" action="#" method="post" enctype="multipart/form-data">
+              {% endif %}
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                      <label for="inputName"> Enter Agent First name</label>
+                      <input type="text" name="agent_firstname" value="{{request.session.firstname}}" class="form-control form-control-lg form-control-a" id="inputName" placeholder=" First Name *" required>
+                    </div>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                      <label for="inputName"> Enter Agent last name</label>
+                      <input type="text" name="agent_lastname" value="{{request.session.lastname}}" class="form-control form-control-lg form-control-a" id="inputName" placeholder="Last Name *" required>
+                    </div>
+                  </div>
+                  <div class="col-md-12 mb-3">
+                    <div class="form-group">
+                      <label for="inputEmail1">Enter agent email</label>
+                      <input type="email" name="agent_email" value="{{request.session.email}}" class="form-control form-control-lg form-control-a" id="inputEmail1" placeholder="Email *" required>
+                    </div>
+                  </div>
+                  <div class="col-md-12 mb-3">
+                    <div class="form-group">
+                      <label for="inputEmail1">Enter agent Phone number </label>
+                      <input type="tel" value="{{agnt.contact}}" name="agent_contact"  class="form-control form-control-lg form-control-a" id="inputEmail1" placeholder="Phone no  *" required>
+                    </div>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                      <label for="inputUrl">Enter agent city</label>
+                      <input type="text"  value="{{agnt.city}}" name="agent_city"  class="form-control form-control-lg form-control-a" id="inputUrl" placeholder="city" required>
+                    </div>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                      <label for="inputUrl">Enter agent  state</label>
+                      <input type="text" value="{{agnt.state}}" name="agent_state"  class="form-control form-control-lg form-control-a" id="inputUrl" placeholder="state" required>
+                    </div>
+                  </div>
+
+                  <div class="col-md-12 mb-3">
+                    <div class="form-group">
+                      <label for="textMessage">Enter  agent address</label>
+                      <textarea id="textMessage"   name="agent_address" class="form-control" placeholder=" Address"  cols="45" rows="3" required>{{agnt.address}}"</textarea>
+                    </div>
+                  </div>
+
+                  {% if agnt.country %}
+                  <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                      <label for="inputUrl">Enter agent  state</label>
+                      <input type="text" value="{{agnt.country}}" name="agent_country"  class="form-control form-control-lg form-control-a" id="inputUrl" placeholder="state" required>
+                    </div>
+                  </div>
+                  {% else %}
+
+                  
+              
+                  <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                      <label for="inputUrl">Enter agent Country</label>
+                      <select type="text" name="agent_country"  class="form-control form-control-lg form-control-a" id="inputUrl" placeholder="Country" required>
+                      <option value="">Select country</option>
+                      <option value="Afghanistan">Afghanistan</option>
+                      <option value="Albania">Albania</option>
+                      <option value="Algeria">Algeria</option>
+                      <option value="American Samoa">American Samoa</option>
+                      <option value="Andorra">Andorra</option>
+                      <option value="Angola">Angola</option>
+                      <option value="Anguilla">Anguilla</option>
+                      <option value="Antartica">Antarctica</option>
+                      <option value="Antigua and Barbuda">Antigua and Barbuda</option>
+                      <option value="Argentina">Argentina</option>
+                      <option value="Armenia">Armenia</option>
+                      <option value="Aruba">Aruba</option>
+                      <option value="Australia">Australia</option>
+                      <option value="Austria">Austria</option>
+                      <option value="Azerbaijan">Azerbaijan</option>
+                      <option value="Bahamas">Bahamas</option>
+                      <option value="Bahrain">Bahrain</option>
+                      <option value="Bangladesh">Bangladesh</option>
+                      <option value="Barbados">Barbados</option>
+                      <option value="Belarus">Belarus</option>
+                      <option value="Belgium">Belgium</option>
+                      <option value="Belize">Belize</option>
+                      <option value="Benin">Benin</option>
+                      <option value="Bermuda">Bermuda</option>
+                      <option value="Bhutan">Bhutan</option>
+                      <option value="Bolivia">Bolivia</option>
+                      <option value="Bosnia and Herzegowina">Bosnia and Herzegowina</option>
+                      <option value="Botswana">Botswana</option>
+                      <option value="Bouvet Island">Bouvet Island</option>
+                      <option value="Brazil">Brazil</option>
+                      <option value="British Indian Ocean Territory">British Indian Ocean Territory</option>
+                      <option value="Brunei Darussalam">Brunei Darussalam</option>
+                      <option value="Bulgaria">Bulgaria</option>
+                      <option value="Burkina Faso">Burkina Faso</option>
+                      <option value="Burundi">Burundi</option>
+                      <option value="Cambodia">Cambodia</option>
+                      <option value="Cameroon">Cameroon</option>
+                      <option value="Canada">Canada</option>
+                      <option value="Cape Verde">Cape Verde</option>
+                      <option value="Cayman Islands">Cayman Islands</option>
+                      <option value="Central African Republic">Central African Republic</option>
+                      <option value="Chad">Chad</option>
+                      <option value="Chile">Chile</option>
+                      <option value="China">China</option>
+                      <option value="Christmas Island">Christmas Island</option>
+                      <option value="Cocos Islands">Cocos (Keeling) Islands</option>
+                      <option value="Colombia">Colombia</option>
+                      <option value="Comoros">Comoros</option>
+                      <option value="Congo">Congo</option>
+                      <option value="Congo">Congo, the Democratic Republic of the</option>
+                      <option value="Cook Islands">Cook Islands</option>
+                      <option value="Costa Rica">Costa Rica</option>
+                      <option value="Cota D'Ivoire">Cote d'Ivoire</option>
+                      <option value="Croatia">Croatia (Hrvatska)</option>
+                      <option value="Cuba">Cuba</option>
+                      <option value="Cyprus">Cyprus</option>
+                      <option value="Czech Republic">Czech Republic</option>
+                      <option value="Denmark">Denmark</option>
+                      <option value="Djibouti">Djibouti</option>
+                      <option value="Dominica">Dominica</option>
+                      <option value="Dominican Republic">Dominican Republic</option>
+                      <option value="East Timor">East Timor</option>
+                      <option value="Ecuador">Ecuador</option>
+                      <option value="Egypt">Egypt</option>
+                      <option value="El Salvador">El Salvador</option>
+                      <option value="Equatorial Guinea">Equatorial Guinea</option>
+                      <option value="Eritrea">Eritrea</option>
+                      <option value="Estonia">Estonia</option>
+                      <option value="Ethiopia">Ethiopia</option>
+                      <option value="Falkland Islands">Falkland Islands (Malvinas)</option>
+                      <option value="Faroe Islands">Faroe Islands</option>
+                      <option value="Fiji">Fiji</option>
+                      <option value="Finland">Finland</option>
+                      <option value="France">France</option>
+                      <option value="France Metropolitan">France, Metropolitan</option>
+                      <option value="French Guiana">French Guiana</option>
+                      <option value="French Polynesia">French Polynesia</option>
+                      <option value="French Southern Territories">French Southern Territories</option>
+                      <option value="Gabon">Gabon</option>
+                      <option value="Gambia">Gambia</option>
+                      <option value="Georgia">Georgia</option>
+                      <option value="Germany">Germany</option>
+                      <option value="Ghana">Ghana</option>
+                      <option value="Gibraltar">Gibraltar</option>
+                      <option value="Greece">Greece</option>
+                      <option value="Greenland">Greenland</option>
+                      <option value="Grenada">Grenada</option>
+                      <option value="Guadeloupe">Guadeloupe</option>
+                      <option value="Guam">Guam</option>
+                      <option value="Guatemala">Guatemala</option>
+                      <option value="Guinea">Guinea</option>
+                      <option value="Guinea-Bissau">Guinea-Bissau</option>
+                      <option value="Guyana">Guyana</option>
+                      <option value="Haiti">Haiti</option>
+                      <option value="Heard and McDonald Islands">Heard and Mc Donald Islands</option>
+                      <option value="Holy See">Holy See (Vatican City State)</option>
+                      <option value="Honduras">Honduras</option>
+                      <option value="Hong Kong">Hong Kong</option>
+                      <option value="Hungary">Hungary</option>
+                      <option value="Iceland">Iceland</option>
+                      <option value="India">India</option>
+                      <option value="Indonesia">Indonesia</option>
+                      <option value="Iran">Iran (Islamic Republic of)</option>
+                      <option value="Iraq">Iraq</option>
+                      <option value="Ireland">Ireland</option>
+                      <option value="Israel">Israel</option>
+                      <option value="Italy">Italy</option>
+                      <option value="Jamaica">Jamaica</option>
+                      <option value="Japan">Japan</option>
+                      <option value="Jordan">Jordan</option>
+                      <option value="Kazakhstan">Kazakhstan</option>
+                      <option value="Kenya">Kenya</option>
+                      <option value="Kiribati">Kiribati</option>
+                      <option value="Democratic People's Republic of Korea">Korea, Democratic People's Republic of</option>
+                      <option value="Korea">Korea, Republic of</option>
+                      <option value="Kuwait">Kuwait</option>
+                      <option value="Kyrgyzstan">Kyrgyzstan</option>
+                      <option value="Lao">Lao People's Democratic Republic</option>
+                      <option value="Latvia">Latvia</option>
+                      <option value="Lebanon">Lebanon</option>
+                      <option value="Lesotho">Lesotho</option>
+                      <option value="Liberia">Liberia</option>
+                      <option value="Libyan Arab Jamahiriya">Libyan Arab Jamahiriya</option>
+                      <option value="Liechtenstein">Liechtenstein</option>
+                      <option value="Lithuania">Lithuania</option>
+                      <option value="Luxembourg">Luxembourg</option>
+                      <option value="Macau">Macau</option>
+                      <option value="Macedonia">Macedonia, The Former Yugoslav Republic of</option>
+                      <option value="Madagascar">Madagascar</option>
+                      <option value="Malawi">Malawi</option>
+                      <option value="Malaysia">Malaysia</option>
+                      <option value="Maldives">Maldives</option>
+                      <option value="Mali">Mali</option>
+                      <option value="Malta">Malta</option>
+                      <option value="Marshall Islands">Marshall Islands</option>
+                      <option value="Martinique">Martinique</option>
+                      <option value="Mauritania">Mauritania</option>
+                      <option value="Mauritius">Mauritius</option>
+                      <option value="Mayotte">Mayotte</option>
+                      <option value="Mexico">Mexico</option>
+                      <option value="Micronesia">Micronesia, Federated States of</option>
+                      <option value="Moldova">Moldova, Republic of</option>
+                      <option value="Monaco">Monaco</option>
+                      <option value="Mongolia">Mongolia</option>
+                      <option value="Montserrat">Montserrat</option>
+                      <option value="Morocco">Morocco</option>
+                      <option value="Mozambique">Mozambique</option>
+                      <option value="Myanmar">Myanmar</option>
+                      <option value="Namibia">Namibia</option>
+                      <option value="Nauru">Nauru</option>
+                      <option value="Nepal">Nepal</option>
+                      <option value="Netherlands">Netherlands</option>
+                      <option value="Netherlands Antilles">Netherlands Antilles</option>
+                      <option value="New Caledonia">New Caledonia</option>
+                      <option value="New Zealand">New Zealand</option>
+                      <option value="Nicaragua">Nicaragua</option>
+                      <option value="Niger">Niger</option>
+                      <option value="Nigeria">Nigeria</option>
+                      <option value="Niue">Niue</option>
+                      <option value="Norfolk Island">Norfolk Island</option>
+                      <option value="Northern Mariana Islands">Northern Mariana Islands</option>
+                      <option value="Norway">Norway</option>
+                      <option value="Oman">Oman</option>
+                      <option value="Pakistan">Pakistan</option>
+                      <option value="Palau">Palau</option>
+                      <option value="Panama">Panama</option>
+                      <option value="Papua New Guinea">Papua New Guinea</option>
+                      <option value="Paraguay">Paraguay</option>
+                      <option value="Peru">Peru</option>
+                      <option value="Philippines">Philippines</option>
+                      <option value="Pitcairn">Pitcairn</option>
+                      <option value="Poland">Poland</option>
+                      <option value="Portugal">Portugal</option>
+                      <option value="Puerto Rico">Puerto Rico</option>
+                      <option value="Qatar">Qatar</option>
+                      <option value="Reunion">Reunion</option>
+                      <option value="Romania">Romania</option>
+                      <option value="Russia">Russian Federation</option>
+                      <option value="Rwanda">Rwanda</option>
+                      <option value="Saint Kitts and Nevis">Saint Kitts and Nevis</option> 
+                      <option value="Saint LUCIA">Saint LUCIA</option>
+                      <option value="Saint Vincent">Saint Vincent and the Grenadines</option>
+                      <option value="Samoa">Samoa</option>
+                      <option value="San Marino">San Marino</option>
+                      <option value="Sao Tome and Principe">Sao Tome and Principe</option> 
+                      <option value="Saudi Arabia">Saudi Arabia</option>
+                      <option value="Senegal">Senegal</option>
+                      <option value="Seychelles">Seychelles</option>
+                      <option value="Sierra">Sierra Leone</option>
+                      <option value="Singapore">Singapore</option>
+                      <option value="Slovakia">Slovakia (Slovak Republic)</option>
+                      <option value="Slovenia">Slovenia</option>
+                      <option value="Solomon Islands">Solomon Islands</option>
+                      <option value="Somalia">Somalia</option>
+                      <option value="South Africa">South Africa</option>
+                      <option value="South Georgia">South Georgia and the South Sandwich Islands</option>
+                      <option value="Span">Spain</option>
+                      <option value="SriLanka">Sri Lanka</option>
+                      <option value="St. Helena">St. Helena</option>
+                      <option value="St. Pierre and Miguelon">St. Pierre and Miquelon</option>
+                      <option value="Sudan">Sudan</option>
+                      <option value="Suriname">Suriname</option>
+                      <option value="Svalbard">Svalbard and Jan Mayen Islands</option>
+                      <option value="Swaziland">Swaziland</option>
+                      <option value="Sweden">Sweden</option>
+                      <option value="Switzerland">Switzerland</option>
+                      <option value="Syria">Syrian Arab Republic</option>
+                      <option value="Taiwan">Taiwan, Province of China</option>
+                      <option value="Tajikistan">Tajikistan</option>
+                      <option value="Tanzania">Tanzania, United Republic of</option>
+                      <option value="Thailand">Thailand</option>
+                      <option value="Togo">Togo</option>
+                      <option value="Tokelau">Tokelau</option>
+                      <option value="Tonga">Tonga</option>
+                      <option value="Trinidad and Tobago">Trinidad and Tobago</option>
+                      <option value="Tunisia">Tunisia</option>
+                      <option value="Turkey">Turkey</option>
+                      <option value="Turkmenistan">Turkmenistan</option>
+                      <option value="Turks and Caicos">Turks and Caicos Islands</option>
+                      <option value="Tuvalu">Tuvalu</option>
+                      <option value="Uganda">Uganda</option>
+                      <option value="Ukraine">Ukraine</option>
+                      <option value="United Arab Emirates">United Arab Emirates</option>
+                      <option value="United Kingdom">United Kingdom</option>
+                      <option value="United States">United States</option>
+                      <option value="United States Minor Outlying Islands">United States Minor Outlying Islands</option>
+                      <option value="Uruguay">Uruguay</option>
+                      <option value="Uzbekistan">Uzbekistan</option>
+                      <option value="Vanuatu">Vanuatu</option>
+                      <option value="Venezuela">Venezuela</option>
+                      <option value="Vietnam">Viet Nam</option>
+                      <option value="Virgin Islands (British)">Virgin Islands (British)</option>
+                      <option value="Virgin Islands (U.S)">Virgin Islands (U.S.)</option>
+                      <option value="Wallis and Futana Islands">Wallis and Futuna Islands</option>
+                      <option value="Western Sahara">Western Sahara</option>
+                      <option value="Yemen">Yemen</option>
+                      <option value="Serbia">Serbia</option>
+                      <option value="Zambia">Zambia</option>
+                      <option value="Zimbabwe">Zimbabwe</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  {% endif %}
+
+                
+                  {% if agnt.dob %}
+                  <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                      <label for="inputUrl">Enter agent DOB</label>
+                      <input type="text" value="{{agnt.dob}}" name="agent_dob"  class="form-control form-control-lg form-control-a" id="inputUrl" placeholder="DOB" required>
+                    </div>
+                  </div>
+                  {% else %}
+                  <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                      <label for="inputUrl">Enter agent DOB</label>
+                      <input type="date"  name="agent_dob"  class="form-control form-control-lg form-control-a" id="inputUrl" placeholder="DOB" required>
+                    </div>
+                  </div>
+                  {% endif %}
+
+                  {% if agnt.gender %}
+                  <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                      <label for="inputUrl">Enter agent Gender</label>
+                      <input type="text" value="{{agnt.gender}}" name="agent_gender"  class="form-control form-control-lg form-control-a" id="inputUrl" placeholder="DOB" required>
+                    </div>
+                  </div>
+                  {% else %}
+                  <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                      <label for="inputUrl">Enter agent Gender</label>
+                      <select type="date" name="agent_gender" class="form-control form-control-lg form-control-a" id="inputUrl" placeholder="Gender" required>
+                        <option value="">Select Gender </option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                      </select>
+                    </div>
+                  </div>
+                  {% endif %}
+                
+                  
+                  <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                      <label for="inputUrl">Enter agent Postcode</label>
+                      <input type="text" value="{{agnt.pincode }}" name="agent_postcode"  class="form-control form-control-lg form-control-a" id="inputUrl" placeholder="Postcode" required>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                      <label for="inputUrl">Enter agent Age</label>
+                      <input type="text" value="{{agnt.age}}" name="agent_age"  class="form-control form-control-lg form-control-a" id="inputUrl" placeholder="Age" required>
+                    </div>
+                  </div>
+
+                  {% if agnt.education %}
+                  <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                      <label for="inputUrl">Enter agent Education</label>
+                      <input type="text" value="{{agnt.education}}" name="agent_education"  class="form-control form-control-lg form-control-a" id="inputUrl" placeholder="Age" required>
+                    </div>
+                  </div>
+                  {% else %}    
+
+                  <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                      <label for="inputUrl">Enter agent Education</label>
+                      <select type="text" name="agent_education" value="{{ agnt.education}}" class="form-control form-control-lg form-control-a" id="inputUrl"  required>
+                      <option value="" selected="selected" disabled="disabled">-- select one --</option>
+                      <option value="No formal education">No formal education</option>
+                      <option value="Primary education">Primary education</option>
+                      <option value="Secondary education">Secondary education or high school</option>
+                      <option value="GED">GED</option>
+                      <option value="Vocational qualification">Vocational qualification</option>
+                      <option value="Bachelor's degree">Bachelor's degree</option>
+                      <option value="Master's degree">Master's degree</option>
+                      <option value="Doctorate or higher">Doctorate or higher</option>
+                      </select>
+                    </div>
+                  </div>
+                  {% endif %}
+           
+
+                  
+                  
+                  
+                  <div class="col-md-12 mb-3">
+                    <div class="form-group">
+                      <label for="textMessage">Enter Agent Bio</label>
+                      <textarea id="textMessage"  name="agent_biodata" class="form-control" placeholder=" Bio"  cols="45" rows="8" required>{{agnt.biodata}}</textarea>
+                    </div>
+                  </div>
+
+               {% if agnt.profile_pic %}
+                  <div  class="col-md-12 mb-3">
+                    <div class="form-group">
+                      <label for="inputUrl">Enter agent profile Pic</label>
+                      <input type="text" name="agent_profile_pic"  value="{{ agnt.profile_pic}}" class="form-control form-control-lg form-control-a" id="inputUrl"  required>                
+                    </div>
+                  </div>  
+                {% else %}
+                  <div  class="col-md-12 mb-3">
+                    <div class="form-group">
+                      <label for="inputUrl">Enter agent profile Pic</label>
+                      <input type="file" name="agent_profile_pic"  value="{{ agnt.profile_pic}}" class="form-control form-control-lg form-control-a" id="inputUrl"  required>                
+                    </div>
+                  </div> 
+                {% endif %}
+
+                  <div class="col-md-12 mb-3">
+                    <div class="form-group">
+                      <label for="textMessage">Enter agent property name </label>
+                      <textarea id="textMessage"  name="property_name" class="form-control" placeholder=" Property name "  cols="45" rows="2" required></textarea>
+                    </div>
+                  </div>
+
+                  <div class="col-md-12 mb-3">
+                    <div class="form-group">
+                      <label for="textMessage">Enter agent property address </label>
+                      <textarea id="textMessage"  name="property_address" class="form-control" placeholder=" Property address "  cols="45" rows="2" required></textarea>
+                    </div>
+                  </div>
+
+                  <div class="col-md-12 mb-3">
+                    <div class="form-group">
+                      <label for="textMessage">Enter agent property description </label>
+                      <textarea id="textMessage"  name="property_description" class="form-control" placeholder=" Property description "  cols="45" rows="8" required></textarea>
+                    </div>
+                  </div>
+                
+               
+
+                  <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                      <label for="inputName"> Enter Agent property price</label>
+                      <input type="text" name="property_price" class="form-control form-control-lg form-control-a" id="inputName" placeholder=" Property price " required>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                      <label for="inputName"> Enter Agent property type</label>
+                      <select type="text" name="property_type" class="form-control form-control-lg form-control-a" id="inputName"   required>
+                        <option value="">Select proprty type</option>
+                        <option value="Residential Property">Residential Property</option>
+                        <option value="Commercial property">Commercial Property</option>
+                        
+                      </select>
+                    </div>
+                  </div>
+
+
+                  <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                      <label for="inputName"> Enter Agent property area range </label>
+                      <input type="text" name="property_area_range" class="form-control form-control-lg form-control-a" id="inputName" placeholder="somer examplle 100m ,200m.....more"   required>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                      <label for="inputName"> Enter property beds seat </label>
+                      <select type="text" name="property_beds_seat" class="form-control form-control-lg form-control-a" id="inputName"  required>
+                        <option value="">Select Beds seat </option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="Various beds seat">Various beds seat</option>    
+                        <option value="No any beds seat">No any beds seat</option>                                                               
+                      </select>
+                      </div>
+                  </div>
+
+
+                  
+                  <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                      <label for="inputName"> Enter property baths </label>
+                      <select type="text" name="property_baths" class="form-control form-control-lg form-control-a" id="inputName"  required>
+                        <option value="">Select baths </option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="Various baths">Various baths</option>    
+                        <option value="No any baths">No any baths</option>                                                                
+                      </select>
+                      </div>
+                  </div>
+
+                  <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                      <label for="inputName"> Enter property Garage </label>
+                      <select type="text" name="property_garage" class="form-control form-control-lg form-control-a" id="inputName"  required>
+                        <option value="">Select garage </option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="Various garage">Various garage</option> 
+                        <option value="No any garage">No any garage</option>                                                                   
+                      </select>
+                      </div>
+                  </div>
+
+
+                  
+                  <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                      <label for="inputName"> Enter Balcony </label>
+                      <select type="text" name="property_balcony" class="form-control form-control-lg form-control-a" id="inputName"  required>
+                        <option value="">Select Balcony </option>
+                        <option value="Balcony">Balcony</option>
+                        <option value="">No any Balcony</option>                                                           
+                      </select>
+                      </div>
+                  </div>
+
+                  <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                      <label for="inputName"> Enter Outdoor Kitchen </label>
+                      <select type="text" name="property_outdoor_kitchen" class="form-control form-control-lg form-control-a" id="inputName"  required>
+                        <option value="">Select Outdoor Kitchen </option>
+                        <option value="Outdoor Kitchen">Outdoor Kitchen</option>
+                        <option value="">No any Outdoor Kitchen</option>                                                           
+                      </select>
+                      </div>
+                  </div>
+
+                  <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                      <label for="inputName"> Enter Cable Tv </label>
+                      <select type="text" name="property_cable_tv" class="form-control form-control-lg form-control-a" id="inputName"  required>
+                        <option value="">Select Cable Tv </option>
+                        <option value="Cable Tv"> Cable Tv</option>
+                        <option value="">No any Cable Tv</option>                                                           
+                      </select>
+                      </div>
+                  </div>
+
+                  <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                      <label for="inputName"> Enter Deck </label>
+                      <select type="text" name="property_deck" class="form-control form-control-lg form-control-a" id="inputName"  required>
+                        <option value="">Select Deck </option>
+                        <option value="Deck"> Deck</option>
+                        <option value="">No any Deck</option>                                                           
+                      </select>
+                      </div>
+                  </div>
+
+                  <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                      <label for="inputName"> Enter Tennis Courts </label>
+                      <select type="text" name="property_tennis_courts" class="form-control form-control-lg form-control-a" id="inputName"  required>
+                        <option value="">Select Tennis Courts </option>
+                        <option value="Tennis Courts"> Tennis Courts</option>
+                        <option value="">No any Tennis Courts</option>                                                           
+                      </select>
+                      </div>
+                  </div>
+
+                  <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                      <label for="inputName"> Enter Internet </label>
+                      <select type="text" name="property_internet" class="form-control form-control-lg form-control-a" id="inputName"  required>
+                        <option value="">Select Internet </option>
+                        <option value="Internet"> Internet</option>
+                        <option value="">No any Internet</option>                                                           
+                      </select>
+                      </div>
+                  </div>
+
+                  <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                      <label for="inputName"> Enter Parking </label>
+                      <select type="text" name="property_parking" class="form-control form-control-lg form-control-a" id="inputName"  required>
+                        <option value="">Select Parking </option>
+                        <option value="Parking"> Parking</option>
+                        <option value="">No any Parking</option>                                                           
+                      </select>
+                      </div>
+                  </div>
+
+                  <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                      <label for="inputName"> Enter Sun Room </label>
+                      <select type="text" name="property_sun_room" class="form-control form-control-lg form-control-a" id="inputName"  required>
+                        <option value="">Select Sun Room </option>
+                        <option value="Sun Room"> Sun Room</option>
+                        <option value="">No any Sun Room</option>                                                           
+                      </select>
+                      </div>
+                  </div>
+
+                  <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                      <label for="inputName"> Enter Concrete Flooring </label>
+                      <select type="text" name="property_concreate_flooring" class="form-control form-control-lg form-control-a" id="inputName"  required>
+                        <option value="">Select Concrete Flooring </option>
+                        <option value="Concrete Flooring"> Concrete Flooring</option>
+                        <option value="">No any Concrete Flooring</option>                                                           
+                      </select>
+                      </div>
+                  </div>
+
+
+                  <div  class="col-md-12 mb-3">
+                    <div class="form-group">
+                      <label for="inputUrl">Enter agent property video</label>
+                      <input type="file" name="property_video"  class="form-control form-control-lg form-control-a" id="inputUrl"  required> 
+                    </div>
+                  </div>
+
+                  <div  class="col-md-12 mb-3">
+                    <div class="form-group">
+                      <label for="inputUrl">Enter agent property Pic 1</label>
+                      <input type="file" name="property_pic1"  class="form-control form-control-lg form-control-a" id="inputUrl"  required>
+                
+                    </div>
+                  </div>
+
+                  <div  class="col-md-12 mb-3">
+                    <div class="form-group">
+                      <label for="inputUrl">Enter agent property Pic 2</label>
+                      <input type="file" name="property_pic2"  class="form-control form-control-lg form-control-a" id="inputUrl"  required>
+                
+                    </div>
+                  </div>
+                  <div  class="col-md-12 mb-3">
+                    <div class="form-group">
+                      <label for="inputUrl">Enter agent property Pic 3</label>
+                      <input type="file" name="property_pic3"  class="form-control form-control-lg form-control-a" id="inputUrl"  required>
+                
+                    </div>
+                  </div>
+
+                  <div  class="col-md-12 mb-3">
+                    <div class="form-group">
+                      <label for="inputUrl">Enter agent property floor plan</label>
+                      <input type="file" name="property_floor_plan"  class="form-control form-control-lg form-control-a" id="inputUrl"  required>
+                
+                    </div>
+                  </div>
+
+              
+
+                
+                  
+                  <div class="col-md-12 mb-3">
+                    <div class="form-group">
+                    
+                    </div>
+                  </div>
+               
+               
+                  <div  class="text-center"><button style="  background-color: #4660f5; /* Green */
+                    border: none;
+                    color: white;
+                    padding: 15px 31px;
+                    text-align: center;
+                    text-decoration: none;
+                    display: inline-block;
+                    font-size: 14px;
+                    margin: 4px 2px;
+                    border-radius: 10px;
+                    cursor: pointer;" type="submit">Update</button></div>
+                </div>
+
+                
+
+                
+               
+              </form>
+            </div>
+          </div>
+        </div>  
+      </div>
+    </section><!-- End Blog Single-->
+
+  </main><!-- End #main -->
+{% endblock  %}

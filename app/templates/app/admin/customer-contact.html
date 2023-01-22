@@ -1,0 +1,102 @@
+{% extends "app/admin/base1.html" %}
+{% block content %}
+{% load static %}
+
+        <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
+        <link href="{% static 'table/css/styles.css' %}" rel="stylesheet" />
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+<main id="main">
+        <div id="layoutSidenav">
+            <div id="layoutSidenav_content">
+                <main>
+                    <div class="container-fluid px-4">
+                        <h1 class="mt-4">Customer Contact List</h1>
+                        <ol class="breadcrumb mb-4">
+                            <li class="breadcrumb-item"><a href="{% url 'admin_home_page' %}">Home</a></li>
+                            <li class="breadcrumb-item active">Tables</li>
+                        </ol>
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                This is the Customer Contact list and posted by the customer user data .
+                            </div>
+                        </div>
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <i class="fas fa-table me-1"></i>
+                                Customer contact List
+                            </div>
+                            <div class="card-body">
+                                <table id="datatablesSimple">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+
+                                            <th>City</th>
+                                            <th>State</th>
+                                            <th>Address</th>
+                                            <th>country</th>
+                                            <th>Gender</th>
+                                            <th>Pincode</th>
+                                            <th>Subject</th>
+                                            <th>Message</th>
+                                            <th>Delete</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>Name</th>
+                                       
+                                            <th>City</th>
+                                            <th>State</th>
+                                            <th>Address</th>
+                                            <th>country</th>
+                                            <th>Gender</th>
+                                            <th>Pincode</th>                                           
+                                            <th>Subject</th>
+                                            <th>Message</th>
+                                            <th>Delete</th>
+                                        </tr>
+                                    </tfoot>
+                                    {% if cust %}
+                                    <tbody>
+                                        {% for i in cust %}
+                                        <tr>
+                                       
+                                            <td>{{i.customer.firstname}} {{i.customer.lastname}}</td>
+                                            <td>{{i.customer.city}}</td>
+                                           
+                                            <td>{{i.customer.state}}</td>
+                                            <td>{{i.customer.address}}</td>
+                                            <td>{{i.customer.country}}</td>
+                                            <td>{{i.customer.gender}}</td>
+                                            <td>{{i.customer.pincode}}</td>
+                                            <td>{{i.subject}}</td>
+                                            <td>{{i.message}}</td>
+                                            <td>
+                                                <form action="{%  url 'admin_customer_contact_data_delete' pk=i.id %}" method="POST">
+                                                    {% csrf_token %}
+                                                    <input type="submit" name="delete" value="Delete" id="">
+                                                </form>
+                                            </td>
+                                           
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                    {% endif %}
+                                </table>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+
+            </div>
+
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="{% static 'table/js/scripts.js' %}"></script>
+        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+        <script src="{% static 'table/js/datatables-simple-demo.js' %}"></script>
+
+{% endblock %}

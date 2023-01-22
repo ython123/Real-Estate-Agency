@@ -1,0 +1,19 @@
+
+{% extends "app/agent/base1.html" %}
+{% block content %}
+
+ <main id="main">
+<!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
+    <div class="hero-container" data-aos="fade-in">
+      {% if request.session.role == "Agent" %}
+      <h1>{{ request.session.firstname}} {{ request.session.lastname}}</h1>
+      {% endif   %}
+      <p>I'm <span class="typed" data-typed-items="Property dealer, {{agnt.work}}"></span></p>
+      
+    </div>
+  </section><!-- End Hero -->
+
+</main>
+
+{% endblock %}

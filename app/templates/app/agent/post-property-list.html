@@ -1,0 +1,101 @@
+{% extends "app/agent/base1.html" %}
+{% block content %}
+{% load static %}
+
+        <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
+        <link href="{% static 'table/css/styles.css' %}" rel="stylesheet" />
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+<main id="main">
+        <div id="layoutSidenav">
+            <div id="layoutSidenav_content">
+                <main>
+                    <div class="container-fluid px-4">
+                        <h1 class="mt-4">Property Post List</h1>
+                        <ol class="breadcrumb mb-4">
+                            <li class="breadcrumb-item"><a href="{% url 'agenthomepage' %}">Home</a></li>
+                            <li class="breadcrumb-item active">Tables</li>
+                        </ol>
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                This is the list post property list posted by the agent.
+                            </div>
+                        </div>
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <i class="fas fa-table me-1"></i>
+                                Property Post List
+                            </div>
+                            <div class="card-body">
+                                <table id="datatablesSimple">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Agent Profile Picture</th>
+                                            <th>City</th>
+                                            <th>State</th>
+                                            <th>Agent address</th>
+                                            <th>country</th>
+                                            <th>Gender</th>
+                                            <th>Pincode</th>
+                                            <th>Property name</th>
+                                            <th>Property price</th>
+                                            <th>Property type</th>
+                                            <th>Property picture</th>
+                                            <th>Property address</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Agent Profile Picture</th>
+                                            <th>City</th>
+                                            <th>State</th>
+                                            <th>Agent address</th>
+                                            <th>country</th>
+                                            <th>Gender</th>
+                                            <th>Pincode</th>                                           
+                                            <th>Property name</th>
+                                            <th>Property price</th>
+                                            <th>Property type</th>
+                                            <th>Property picture</th>
+                                            <th>Property address</th>
+                                        </tr>
+                                    </tfoot>
+                                    {% if p_data %}
+                                    <tbody>
+                                        {% for i in p_data %}
+                                        <tr>
+                                       
+                                            <td>{{i.agent_firstname}} {{i.agent_lastname}}</td>
+                                            <td> <img src="{{MEDIA_URL}}{{i.agent_profile_pic.url}}" class="img-fluid" alt=""></td>                                            
+                                            <td>{{i.agent_city}}</td>
+                                            <td>{{i.agent_state}}</td>
+                                            <td>{{i.agent_address}}</td>
+                                            <td>{{i.agent_country}}</td>
+                                            <td>{{i.agent_gender}}</td>
+                                            <td>{{i.agent_pincode}}</td>
+                                            <td>{{i.property_name}}</td>
+                                            <td>Rs.{{i.property_price}}</td>
+                                            <td>{{i.property_type}}</td>
+                                            <td> <img src="{{MEDIA_URL}}{{i.property_pic1.url}}" class="img-fluid" alt=""></td>
+                                            <td>{{i.property_address}}</td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                    {% endif %}
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+
+            </div>
+
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="{% static 'table/js/scripts.js' %}"></script>
+        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+        <script src="{% static 'table/js/datatables-simple-demo.js' %}"></script>
+
+{% endblock %}

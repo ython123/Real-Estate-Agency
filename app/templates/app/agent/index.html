@@ -1,0 +1,823 @@
+{% extends "app/agent/base1.html" %}
+{% block content %}
+{% load static %}
+ <!-- Favicons -->
+ <link href="{% static 'customer/img/favicon.png' %}" rel="icon">
+ <link href="{% static 'customer/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+ <!-- Google Fonts -->
+ <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+
+ <!-- Bootstrap CSS File -->
+ <link href="{% static 'customer/lib/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+ <!-- Libraries CSS Files -->
+ <link href="{% static 'customer/lib/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
+ <link href="{% static 'customer/lib/animate/animate.min.css' %}" rel="stylesheet">
+ <link href="{% static 'customer/lib/ionicons/css/ionicons.min.css' %}" rel="stylesheet">
+ <link href="{% static 'customer/lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+
+ <!-- Main Stylesheet File -->
+ <link href="{% static 'customer/css/style.css' %}" rel="stylesheet">
+
+  <!-- ======= Hero Section ======= -->
+  
+  <section id="hero" 
+  style=" width: 100%;
+  height: 100vh;
+  background-image: url({% static '/customer/img/slide-3.jpg' %})" top center;
+  background-size: cover;"
+   class="d-flex flex-column justify-content-center align-items-center">
+    <div class="hero-container" data-aos="fade-in">
+      {% if request.session.role == "Agent" %}
+      <h1>{{ request.session.firstname}} {{ request.session.lastname}}  </h1>
+      {% endif   %}
+    
+      <p>I'm <span class="typed" data-typed-items="Property dealer, {{agnt.work}}   "></span></p>
+      
+    </div>
+  </section><!-- End Hero -->
+
+  <main id="main">
+
+    <!-- ======= About Section ======= -->
+     <!--/ Intro Single star /-->
+  <section class="intro-single">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-lg-8">
+          <div class="title-single-box">
+            <h1 class="title-single">We Do Great Design For Creative Folks</h1>
+          </div>
+        </div>
+        <div class="col-md-12 col-lg-4">
+          <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item">
+                <a href="{% url 'homepage' %}">Home</a>
+              </li>
+              <li class="breadcrumb-item active" aria-current="page">
+                About
+              </li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--/ Intro Single End /-->
+
+  <!--/ About Star /-->
+  <section class="section-about">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="about-img-box">
+            <img src="{% static 'customer/img/slide-about-1.jpg' %}" alt="" class="img-fluid">
+          </div>
+          <div class="sinse-box">
+            <h3 class="sinse-title">EstateAgency
+              <span></span>
+              <br> Sinse 2022</h3>
+            <p>Art & Creative</p>
+          </div>
+        </div>
+        <div class="col-md-12 section-t8">
+          <div class="row">
+            <div class="col-md-6 col-lg-5">
+              <img src="{% static 'customer/img/property-2.jpg' %}" alt="" class="img-fluid">
+            </div>
+            <div class="col-lg-2  d-none d-lg-block">
+              <div class="title-vertical d-flex justify-content-start">
+                <span>EstateAgency Exclusive Property</span>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-5 section-md-t3">
+              <div class="title-box-d">
+                <h3 class="title-d">Website
+                  <span class="color-d">About</span> page
+                  <br> About Us.</h3>
+              </div>
+              <p class="color-text-a">
+                This website is very greatfull and dynamic website.
+                We can easily post and share your property .
+              </p>
+              <p class="color-text-a">
+                In which data are very secure this website are make in python Technology
+              </p>
+              <p class="color-text-a">
+                We can easily serch your property .
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--/ About End /-->
+
+  <!--/ Team Star /-->
+ <!-- <section class="section-agents section-t8">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="title-wrap d-flex justify-content-between">
+            <div class="title-box">
+              <h2 class="title-a">Meet Our Team</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card-box-d">
+            <div class="card-img-d">
+              <img src="img/agent-7.jpg" alt="" class="img-d img-fluid">
+            </div>
+            <div class="card-overlay card-overlay-hover">
+              <div class="card-header-d">
+                <div class="card-title-d align-self-center">
+                  <h3 class="title-d">
+                    <a href="agent-single.html" class="link-two">Margaret Sotillo
+                      <br> Escala</a>
+                  </h3>
+                </div>
+              </div>
+              <div class="card-body-d">
+                <p class="content-d color-text-a">
+                  Sed porttitor lectus nibh, Cras ultricies ligula sed magna dictum porta two.
+                </p>
+                <div class="info-agents color-a">
+                  <p>
+                    <strong>Phone: </strong> +54 356 945234</p>
+                  <p>
+                    <strong>Email: </strong> agents@example.com</p>
+                </div>
+              </div>
+              <div class="card-footer-d">
+                <div class="socials-footer d-flex justify-content-center">
+                  <ul class="list-inline">
+                    <li class="list-inline-item">
+                      <a href="#" class="link-one">
+                        <i class="fa fa-facebook" aria-hidden="true"></i>
+                      </a>
+                    </li>
+                    <li class="list-inline-item">
+                      <a href="#" class="link-one">
+                        <i class="fa fa-twitter" aria-hidden="true"></i>
+                      </a>
+                    </li>
+                    <li class="list-inline-item">
+                      <a href="#" class="link-one">
+                        <i class="fa fa-instagram" aria-hidden="true"></i>
+                      </a>
+                    </li>
+                    <li class="list-inline-item">
+                      <a href="#" class="link-one">
+                        <i class="fa fa-pinterest-p" aria-hidden="true"></i>
+                      </a>
+                    </li>
+                    <li class="list-inline-item">
+                      <a href="#" class="link-one">
+                        <i class="fa fa-dribbble" aria-hidden="true"></i>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card-box-d">
+            <div class="card-img-d">
+              <img src="img/agent-6.jpg" alt="" class="img-d img-fluid">
+            </div>
+            <div class="card-overlay card-overlay-hover">
+              <div class="card-header-d">
+                <div class="card-title-d align-self-center">
+                  <h3 class="title-d">
+                    <a href="agent-single.html" class="link-two">Stiven Spilver
+                      <br> Darw</a>
+                  </h3>
+                </div>
+              </div>
+              <div class="card-body-d">
+                <p class="content-d color-text-a">
+                  Sed porttitor lectus nibh, Cras ultricies ligula sed magna dictum porta two.
+                </p>
+                <div class="info-agents color-a">
+                  <p>
+                    <strong>Phone: </strong> +54 356 945234</p>
+                  <p>
+                    <strong>Email: </strong> agents@example.com</p>
+                </div>
+              </div>
+              <div class="card-footer-d">
+                <div class="socials-footer d-flex justify-content-center">
+                  <ul class="list-inline">
+                    <li class="list-inline-item">
+                      <a href="#" class="link-one">
+                        <i class="fa fa-facebook" aria-hidden="true"></i>
+                      </a>
+                    </li>
+                    <li class="list-inline-item">
+                      <a href="#" class="link-one">
+                        <i class="fa fa-twitter" aria-hidden="true"></i>
+                      </a>
+                    </li>
+                    <li class="list-inline-item">
+                      <a href="#" class="link-one">
+                        <i class="fa fa-instagram" aria-hidden="true"></i>
+                      </a>
+                    </li>
+                    <li class="list-inline-item">
+                      <a href="#" class="link-one">
+                        <i class="fa fa-pinterest-p" aria-hidden="true"></i>
+                      </a>
+                    </li>
+                    <li class="list-inline-item">
+                      <a href="#" class="link-one">
+                        <i class="fa fa-dribbble" aria-hidden="true"></i>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card-box-d">
+            <div class="card-img-d">
+              <img src="img/agent-5.jpg" alt="" class="img-d img-fluid">
+            </div>
+            <div class="card-overlay card-overlay-hover">
+              <div class="card-header-d">
+                <div class="card-title-d align-self-center">
+                  <h3 class="title-d">
+                    <a href="agent-single.html" class="link-two">Emma Toledo
+                      <br> Cascada</a>
+                  </h3>
+                </div>
+              </div>
+              <div class="card-body-d">
+                <p class="content-d color-text-a">
+                  Sed porttitor lectus nibh, Cras ultricies ligula sed magna dictum porta two.
+                </p>
+                <div class="info-agents color-a">
+                  <p>
+                    <strong>Phone: </strong> +54 356 945234</p>
+                  <p>
+                    <strong>Email: </strong> agents@example.com</p>
+                </div>
+              </div>
+              <div class="card-footer-d">
+                <div class="socials-footer d-flex justify-content-center">
+                  <ul class="list-inline">
+                    <li class="list-inline-item">
+                      <a href="#" class="link-one">
+                        <i class="fa fa-facebook" aria-hidden="true"></i>
+                      </a>
+                    </li>
+                    <li class="list-inline-item">
+                      <a href="#" class="link-one">
+                        <i class="fa fa-twitter" aria-hidden="true"></i>
+                      </a>
+                    </li>
+                    <li class="list-inline-item">
+                      <a href="#" class="link-one">
+                        <i class="fa fa-instagram" aria-hidden="true"></i>
+                      </a>
+                    </li>
+                    <li class="list-inline-item">
+                      <a href="#" class="link-one">
+                        <i class="fa fa-pinterest-p" aria-hidden="true"></i>
+                      </a>
+                    </li>
+                    <li class="list-inline-item">
+                      <a href="#" class="link-one">
+                        <i class="fa fa-dribbble" aria-hidden="true"></i>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>-->
+  <!--/ Team End /-->
+
+   
+  <section class="intro-single">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-lg-8">
+          <div class="title-single-box">
+            <h1 class="title-single">Privacy Policy Us</h1>
+          </div>
+        </div>
+        <div class="col-md-12 col-lg-4">
+          <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item">
+                <a href="{% url 'agenthomepage' %}">Home</a>
+              </li>
+              <li class="breadcrumb-item active" aria-current="page">
+                Privacy Policy Us
+              </li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--/ Intro Single End /-->
+
+  <!--/ About Star /-->
+  <section class="section-about">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="about-img-box">
+            <img src="{% static 'customer/img/slide-3.jpg' %}" alt="" class="img-fluid">
+          </div>
+          <div class="sinse-box">
+            <h3 class="sinse-title">EstateAgency
+              <span></span>
+              <br> Sinse 2022</h3>
+            <p>Art & Creative</p>
+          </div>
+        </div>
+        <div class="col-md-12 section-t8">
+          <div class="row">
+            <div class="col-md-6 col-lg-5">
+              <img src="{% static 'customer/img/property-3.jpg' %}" alt="" class="img-fluid">
+            </div>
+            <div class="col-lg-2  d-none d-lg-block">
+              <div class="title-vertical d-flex justify-content-start">
+                <span>EstateAgency Exclusive Property</span>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-5 section-md-t3">
+              <div class="title-box-d">
+                <h3 class="title-d">
+                  <span class="color-d">Privacy</span> Policy
+                  <br> Us.</h3>
+              </div>
+              <p class="color-text-a">
+                This Privacy Policy describes how India Real Estate Trust collects, uses, and discloses your personal information both offline and on the websites, apps, and services where this Privacy Policy appears or is referenced. This Privacy Policy does not apply to personal information Brookfield Properties collects from its employees and contractors
+              </p>
+              <p class="color-text-a">
+                By accessing a India Real Estate Trust  website, app, or service from which this Privacy Policy is referenced, you confirm that you have read, understand, and acknowledge the terms of this Privacy Policy. For the purpose of European data protection laws, Brookfield India Real Estate Trust  acts as a controller in connection with certain personal information described in this Privacy Policy. This Privacy Policy is not a contract and does not create any legal rights or obligations.
+              </p>
+              <p class="color-text">
+                We may update this Privacy Policy.
+
+From time to time we may change this Privacy Policy. We will notify you of any material changes to our Privacy Policy to the extent required by law. We will post an updated copy on our websites. Please check our websites periodically for updates. Your continued use of our websites or our services means that you consent to the collection, use and disclosure of your personal information as set out in the updated Privacy Policy.
+              </p>>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--/ About End /-->
+
+  <!--/ Team Star /-->
+ <!-- <section class="section-agents section-t8">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="title-wrap d-flex justify-content-between">
+            <div class="title-box">
+              <h2 class="title-a">Meet Our Team</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card-box-d">
+            <div class="card-img-d">
+              <img src="img/agent-7.jpg" alt="" class="img-d img-fluid">
+            </div>
+            <div class="card-overlay card-overlay-hover">
+              <div class="card-header-d">
+                <div class="card-title-d align-self-center">
+                  <h3 class="title-d">
+                    <a href="agent-single.html" class="link-two">Margaret Sotillo
+                      <br> Escala</a>
+                  </h3>
+                </div>
+              </div>
+              <div class="card-body-d">
+                <p class="content-d color-text-a">
+                  Sed porttitor lectus nibh, Cras ultricies ligula sed magna dictum porta two.
+                </p>
+                <div class="info-agents color-a">
+                  <p>
+                    <strong>Phone: </strong> +54 356 945234</p>
+                  <p>
+                    <strong>Email: </strong> agents@example.com</p>
+                </div>
+              </div>
+              <div class="card-footer-d">
+                <div class="socials-footer d-flex justify-content-center">
+                  <ul class="list-inline">
+                    <li class="list-inline-item">
+                      <a href="#" class="link-one">
+                        <i class="fa fa-facebook" aria-hidden="true"></i>
+                      </a>
+                    </li>
+                    <li class="list-inline-item">
+                      <a href="#" class="link-one">
+                        <i class="fa fa-twitter" aria-hidden="true"></i>
+                      </a>
+                    </li>
+                    <li class="list-inline-item">
+                      <a href="#" class="link-one">
+                        <i class="fa fa-instagram" aria-hidden="true"></i>
+                      </a>
+                    </li>
+                    <li class="list-inline-item">
+                      <a href="#" class="link-one">
+                        <i class="fa fa-pinterest-p" aria-hidden="true"></i>
+                      </a>
+                    </li>
+                    <li class="list-inline-item">
+                      <a href="#" class="link-one">
+                        <i class="fa fa-dribbble" aria-hidden="true"></i>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card-box-d">
+            <div class="card-img-d">
+              <img src="img/agent-6.jpg" alt="" class="img-d img-fluid">
+            </div>
+            <div class="card-overlay card-overlay-hover">
+              <div class="card-header-d">
+                <div class="card-title-d align-self-center">
+                  <h3 class="title-d">
+                    <a href="agent-single.html" class="link-two">Stiven Spilver
+                      <br> Darw</a>
+                  </h3>
+                </div>
+              </div>
+              <div class="card-body-d">
+                <p class="content-d color-text-a">
+                  Sed porttitor lectus nibh, Cras ultricies ligula sed magna dictum porta two.
+                </p>
+                <div class="info-agents color-a">
+                  <p>
+                    <strong>Phone: </strong> +54 356 945234</p>
+                  <p>
+                    <strong>Email: </strong> agents@example.com</p>
+                </div>
+              </div>
+              <div class="card-footer-d">
+                <div class="socials-footer d-flex justify-content-center">
+                  <ul class="list-inline">
+                    <li class="list-inline-item">
+                      <a href="#" class="link-one">
+                        <i class="fa fa-facebook" aria-hidden="true"></i>
+                      </a>
+                    </li>
+                    <li class="list-inline-item">
+                      <a href="#" class="link-one">
+                        <i class="fa fa-twitter" aria-hidden="true"></i>
+                      </a>
+                    </li>
+                    <li class="list-inline-item">
+                      <a href="#" class="link-one">
+                        <i class="fa fa-instagram" aria-hidden="true"></i>
+                      </a>
+                    </li>
+                    <li class="list-inline-item">
+                      <a href="#" class="link-one">
+                        <i class="fa fa-pinterest-p" aria-hidden="true"></i>
+                      </a>
+                    </li>
+                    <li class="list-inline-item">
+                      <a href="#" class="link-one">
+                        <i class="fa fa-dribbble" aria-hidden="true"></i>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card-box-d">
+            <div class="card-img-d">
+              <img src="img/agent-5.jpg" alt="" class="img-d img-fluid">
+            </div>
+            <div class="card-overlay card-overlay-hover">
+              <div class="card-header-d">
+                <div class="card-title-d align-self-center">
+                  <h3 class="title-d">
+                    <a href="agent-single.html" class="link-two">Emma Toledo
+                      <br> Cascada</a>
+                  </h3>
+                </div>
+              </div>
+              <div class="card-body-d">
+                <p class="content-d color-text-a">
+                  Sed porttitor lectus nibh, Cras ultricies ligula sed magna dictum porta two.
+                </p>
+                <div class="info-agents color-a">
+                  <p>
+                    <strong>Phone: </strong> +54 356 945234</p>
+                  <p>
+                    <strong>Email: </strong> agents@example.com</p>
+                </div>
+              </div>
+              <div class="card-footer-d">
+                <div class="socials-footer d-flex justify-content-center">
+                  <ul class="list-inline">
+                    <li class="list-inline-item">
+                      <a href="#" class="link-one">
+                        <i class="fa fa-facebook" aria-hidden="true"></i>
+                      </a>
+                    </li>
+                    <li class="list-inline-item">
+                      <a href="#" class="link-one">
+                        <i class="fa fa-twitter" aria-hidden="true"></i>
+                      </a>
+                    </li>
+                    <li class="list-inline-item">
+                      <a href="#" class="link-one">
+                        <i class="fa fa-instagram" aria-hidden="true"></i>
+                      </a>
+                    </li>
+                    <li class="list-inline-item">
+                      <a href="#" class="link-one">
+                        <i class="fa fa-pinterest-p" aria-hidden="true"></i>
+                      </a>
+                    </li>
+                    <li class="list-inline-item">
+                      <a href="#" class="link-one">
+                        <i class="fa fa-dribbble" aria-hidden="true"></i>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>-->
+  <!--/ Team End /-->
+
+    <!--/ Intro Single star /-->
+    <section class="intro-single">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 col-lg-8">
+            <div class="title-single-box">
+              <h1 class="title-single">Contact US</h1>
+              <span class="color-text-a">
+                We can easily contact us for your problem. Its very secure and very greatfull website
+                contact us for website owner. 
+              </span>
+            </div>
+          </div>
+          <div class="col-md-12 col-lg-4">
+            <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                  <a href="{% url 'agenthomepage' %}">Home</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">
+                  Contact
+                </li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--/ Intro Single End /-->
+  
+    <!--/ Contact Star /-->
+    <section class="contact">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="contact-map box">
+              <div id="map" class="contact-map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3726.300068286679!2d72.94837321440586!3d20.940461496163845!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be0f6541173178f%3A0x6bb12c948c33e2fc!2sS%20S%20Agrawal%20College%2C%20Navsari!5e0!3m2!1sen!2sin!4v1657894195233!5m2!1sen!2sin"
+                  width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-sm-12 section-t8">
+            {% if sms %}
+            <center><h2 style="color: green;">{{sms}}</h2></center>
+            {% endif %}
+            <br/>
+            <br/>
+            <div class="row">
+              <div class="col-md-7">
+                {% if request.session.id %}
+                <form class="form-a" action="{% url 'agent_contact_process' %}" method="post">
+                {% endif %}
+                  {% csrf_token %}
+                  <div class="row">
+                    
+                  
+                    <div class="col-md-12 mb-1">
+                      <div class="form-group">
+                        <label for="">Enter your name </label>
+                        <input type="text" name="name" value="{{request.session.firstname}} {{request.session.lastname}}"  class="form-control form-control-lg form-control-a" id="inputEmail1"
+                        placeholder="Name *" required>
+                      </div>
+                    </div>
+                    <div class="col-md-12 mb-1">
+                      <div class="form-group">
+                        <input type="email" value="{{request.session.email}}"  class="form-control form-control-lg form-control-a" id="inputEmail1"
+                          placeholder="Email *" required>
+                      </div>
+                    </div>
+                    <div class="col-md-12 mb-1">
+                      <div class="form-group">
+                        <input type="text" name="subject"  class="form-control form-control-lg form-control-a" id="inputEmail1"
+                          placeholder="Subject *" required>
+                      </div>
+                    </div>
+                    <div class="col-md-12 mb-1">
+                      <div class="form-group">
+                        <textarea id="textMessage" name="message" class="form-control" placeholder="Comment *" name="message" cols="45"
+                          rows="8" required></textarea>
+                      </div>
+                    </div>
+                    <div class="col-md-12">
+                      <button type="submit" class="btn btn-a">Send Message</button>
+                    </div>
+                  </div>
+                </form> 
+               
+              </div>
+              <div class="col-md-5 section-md-t3">
+                <div class="icon-box section-b2">
+                  <div class="icon-box-icon">
+                    <span class="ion-ios-paper-plane"></span>
+                  </div>
+                  <div class="icon-box-content table-cell">
+                    <div class="icon-box-title">
+                      <h4 class="icon-title">Say Hello</h4>
+                    </div>
+                    <div class="icon-box-content">
+                      <p class="mb-1">Email.
+                        <span class="color-a">contact@example.com</span>
+                      </p>
+                      <p class="mb-1">Phone.
+                        <span class="color-a">+91 1234567891</span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="icon-box section-b2">
+                  <div class="icon-box-icon">
+                    <span class="ion-ios-pin"></span>
+                  </div>
+                  <div class="icon-box-content table-cell">
+                    <div class="icon-box-title">
+                      <h4 class="icon-title">Find us in</h4>
+                    </div>
+                    <div class="icon-box-content">
+                      <p class="mb-1">
+                        Gujrat , Navsari, ss.agrwal collage 
+                        <br> Navsari,valsad
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <!--
+                <div class="icon-box">
+                  <div class="icon-box-icon">
+                    <span class="ion-ios-redo"></span>
+                  </div>
+                  <div class="icon-box-content table-cell">
+                    <div class="icon-box-title">
+                      <h4 class="icon-title">Social networks</h4>
+                    </div>
+                    <div class="icon-box-content">
+                      <div class="socials-footer">
+                        <ul class="list-inline">
+                          <li class="list-inline-item">
+                            <a href="#" class="link-one">
+                              <i class="fa fa-facebook" aria-hidden="true"></i>
+                            </a>
+                          </li>
+                          <li class="list-inline-item">
+                            <a href="#" class="link-one">
+                              <i class="fa fa-twitter" aria-hidden="true"></i>
+                            </a>
+                          </li>
+                          <li class="list-inline-item">
+                            <a href="#" class="link-one">
+                              <i class="fa fa-instagram" aria-hidden="true"></i>
+                            </a>
+                          </li>
+                          <li class="list-inline-item">
+                            <a href="#" class="link-one">
+                              <i class="fa fa-pinterest-p" aria-hidden="true"></i>
+                            </a>
+                          </li>
+                          <li class="list-inline-item">
+                            <a href="#" class="link-one">
+                              <i class="fa fa-dribbble" aria-hidden="true"></i>
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--/ Contact End /-->
+    
+
+    <section class="intro-single">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 col-lg-8">
+            <div class="title-single-box">
+              <h1 class="title-single">Site Map Us</h1>
+              <span class="color-text-a">
+                This is website Addres location . 
+              </span>
+            </div>
+          </div>
+          <div class="col-md-12 col-lg-4">
+            <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                  <a href="{% url 'agenthomepage' %}">Home</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">
+                  Site Map Us
+                </li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--/ Intro Single End /-->
+  
+    <!--/ Contact Star /-->
+    <section class="contact">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="contact-map box">
+              <div id="map" class="contact-map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3726.300068286679!2d72.94837321440586!3d20.940461496163845!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be0f6541173178f%3A0x6bb12c948c33e2fc!2sS%20S%20Agrawal%20College%2C%20Navsari!5e0!3m2!1sen!2sin!4v1657894195233!5m2!1sen!2sin"
+                  width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+              </div>
+            </div>
+          </div>
+        
+         
+        </div>
+      </div>
+    </section>
+    <!--/ Contact End /-->
+
+  </main><!-- End #main -->
+  <script src="{% static 'customer/lib/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'customer/lib/jquery/jquery-migrate.min.js' %}"></script>
+  <script src="{% static 'customer/lib/popper/popper.min.js' %}"></script>
+  <script src="{% static 'customer/lib/bootstrap/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'customer/lib/easing/easing.min.js' %}"></script>
+  <script src="{% static 'customer/lib/owlcarousel/owl.carousel.min.js' %}"></script>
+  <script src="{% static 'customer/lib/scrollreveal/scrollreveal.min.js' %}"></script>
+  <!-- Contact Form JavaScript File -->
+  <script src="{% static 'customer/contactform/contactform.js' %}"></script>
+ 
+  <!-- Template Main Javascript File -->
+  <script src="{% static 'customer/js/main.js' %}"></script>
+
+ {% endblock %}
